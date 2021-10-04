@@ -10,7 +10,7 @@ export default function App() {
   let [recipes, setRecipes] = React.useState([[]])
 
   const getRecipes = () => {
-    fetch("https://random-recipes.p.rapidapi.com/ai-quotes/2", {
+    fetch("https://random-recipes.p.rapidapi.com/ai-quotes/5", {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "random-recipes.p.rapidapi.com",
@@ -64,7 +64,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#AAA',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     color: '#fff'

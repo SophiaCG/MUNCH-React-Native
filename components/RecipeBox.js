@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import { colors } from '../utils/index'
 
-const { PRIMARY_COLOR, SECONDARY_COLOR } = colors
+const { PRIMARY_COLOR, SECONDARY_COLOR, BORDER_COLOR } = colors
 
 export default function RecipeBox ({ recipes }) {
     
@@ -11,35 +11,36 @@ export default function RecipeBox ({ recipes }) {
         image,
     } = recipes
 
-
-
     return (
-        <View style={styles.weatherInfo}>
-            <Text>{title}</Text>
-            <Image style={styles.weatherIcon} source={{ uri: image }} />
+        <View style={styles.recipeBox}>
+            <Image style={styles.foodImage} source={{ uri: image }} />
+            <Text style={styles.title}>{title}</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    weatherInfo: {
-        alignItems: 'center',
+    recipeBox: {
+        marginVertical: 15,
+        borderWidth: 1,
+        borderColor: BORDER_COLOR,
+        borderRadius: 20,
+        marginHorizontal: 5,
+        alignSelf: 'center',
     },
-    weatherDescription: {
-        textTransform: 'capitalize',
+    foodImage: {
+        width: 350,
+        height: 220,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        alignSelf: 'center',
+
     },
-    weatherIcon: {
-        width: 100,
-        height: 100,
-    },
-    textPrimary: {
-        fontSize: 40,
-        color: PRIMARY_COLOR,
-    },
-    textSecondary: {
+    title: {
         fontSize: 20,
         color: SECONDARY_COLOR,
-        fontWeight: '500',
-        marginTop: 10,
+        fontWeight: '800',
+        margin: 10,
+        alignSelf: 'flex-start',
     },
 })
