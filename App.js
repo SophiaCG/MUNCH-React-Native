@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, FlatList, TouchableOpacity } from 'react-native';
 import ReloadIcon from './components/ReloadIcon'
 import { apikey } from '@env'
+import RecipeBox from './components/RecipeBox';
 
 export default function App() {
   let [data, setData] = React.useState([])
@@ -31,16 +32,16 @@ export default function App() {
     getRecipes();
   }, []);
 
-  const Item = ({ title }) => (
+  const Item = ({ recipes }) => (
     <View>
       <TouchableOpacity onPress={console.log()} style={[styles.title]}>
-        <Text style={styles.title}>{title} </Text>
+        <RecipeBox recipes={recipes} />
       </TouchableOpacity>
     </View>
   );
 
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <Item recipes={item} />
   );
 
   return (
@@ -53,6 +54,7 @@ export default function App() {
         keyExtractor={item => item.id}
       />
       <ReloadIcon load={getRecipes} />
+
 
     </View>
   );
