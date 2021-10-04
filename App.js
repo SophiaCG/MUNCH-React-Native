@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, FlatList, TouchableOpacity } from 'react-native';
+import ReloadIcon from './components/ReloadIcon'
 import { apikey } from '@env'
 
 export default function App() {
@@ -24,7 +25,6 @@ export default function App() {
       .catch(err => {
         console.log(err);
       });
-
   }
 
   React.useEffect(() => {
@@ -33,32 +33,31 @@ export default function App() {
 
   const Item = ({ title }) => (
     <View>
-  <TouchableOpacity onPress={console.log()} style={[styles.title]}>
-    <Text style={styles.title}>{title} </Text>
-  </TouchableOpacity>
+      <TouchableOpacity onPress={console.log()} style={[styles.title]}>
+        <Text style={styles.title}>{title} </Text>
+      </TouchableOpacity>
     </View>
   );
+
   const renderItem = ({ item }) => (
     <Item title={item.title} />
   );
+
   return (
     <View style={styles.container}>
-      <TouchableHighlight onPress={getRecipes}>
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>Use Fetch API</Text>
-        </View>
-      </TouchableHighlight>
+
 
       <FlatList
         data={recipes}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
+      <ReloadIcon load={getRecipes} />
+
     </View>
   );
 
-
-  }
+}
 
 const styles = StyleSheet.create({
   container: {
