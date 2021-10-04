@@ -9,7 +9,7 @@ export default function RecipeBox ({ recipes }) {
     const {
         title,
         image,
-    } = recipes
+    } = recipes 
 
     return (
         <View style={styles.recipeBox}>

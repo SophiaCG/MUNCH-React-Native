@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TouchableHighlight, FlatList, TouchableOpacity 
 import ReloadIcon from './components/ReloadIcon'
 import { apikey } from '@env'
 import RecipeBox from './components/RecipeBox';
+import Navigator from './routes/homeStack'
 
 export default function App() {
   let [data, setData] = React.useState([])
@@ -45,18 +46,19 @@ export default function App() {
   );
 
   return (
-    <View style={styles.container}>
+    <Navigator />
+    // <View style={styles.container}>
 
 
-      <FlatList
-        data={recipes}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
-      <ReloadIcon load={getRecipes} />
+    //   <FlatList
+    //     data={recipes}
+    //     renderItem={renderItem}
+    //     keyExtractor={item => item.id}
+    //   />
+    //   <ReloadIcon load={getRecipes} />
 
 
-    </View>
+    // </View>
   );
 
 }
