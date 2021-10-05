@@ -1,14 +1,19 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-import Home from '../screens/home';
-import ReviewDetails from '../screens/reviewDetails';
+import RecipesList from '../screens/RecipesList';
+import RecipeDetails from '../screens/RecipeDetails';
+import About from '../screens/about';
 
 const screens = {
-  Home: {
-    screen: Home,
+    
+  RecipesList: {
+    screen: RecipesList,
   },
-  ReviewDetails: {
-    screen: ReviewDetails,
+  RecipeDetails: {
+    screen: RecipeDetails,
+  },
+  About: {
+    screen: About,
   },
 };
 

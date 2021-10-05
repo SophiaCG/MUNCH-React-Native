@@ -3,11 +3,10 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, FlatList, TouchableOpacity } from 'react-native';
 import ReloadIcon from './components/ReloadIcon'
 import { apikey } from '@env'
-import RecipeBox from './components/RecipeBox';
+import RecipesList from './screens/RecipesList';
 import Navigator from './routes/homeStack'
 
 export default function App() {
-  let [data, setData] = React.useState([])
   let [recipes, setRecipes] = React.useState([[]])
 
   const getRecipes = () => {
@@ -36,7 +35,7 @@ export default function App() {
   const Item = ({ recipes }) => (
     <View>
       <TouchableOpacity onPress={console.log()} style={[styles.title]}>
-        <RecipeBox recipes={recipes} />
+        <RecipesList recipes={recipes} />
       </TouchableOpacity>
     </View>
   );
