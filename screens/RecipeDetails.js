@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, Image, FlatList } from 'react-native';
+import { StyleSheet, View, Text, Button, Image, FlatList, ScrollView, SafeAreaView } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function RecipeDetails({ navigation }) {
@@ -24,28 +24,28 @@ export default function RecipeDetails({ navigation }) {
   );
 
   return (
-    <View style={globalStyles.container}>
-      <Text>{ navigation.getParam('title')}</Text>
-      <Image style={styles.foodImage} source={{ uri: navigation.getParam('image') }} />
-      <Text>{ navigation.getParam('ingredients')}</Text>
-
-
   
-        <View>
+      <SafeAreaView style={{flex: 1}}>
 
             <FlatList
                 data={navigation.getParam('instructions')}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
+                ListHeaderComponent={
+                  <>
+                    <Text>{navigation.getParam('title')}</Text>
+                    <Image style={styles.foodImage} source={{ uri: navigation.getParam('image') }} />
+                    <Text>{navigation.getParam('ingredients')}</Text>
+                  </>
+                }
+                // ListFooterComponent={
+
+                // }
+          
             />
 
+        </SafeAreaView>
 
-        </View>
-
-
-
-
-    </View>
   );
 }
 
